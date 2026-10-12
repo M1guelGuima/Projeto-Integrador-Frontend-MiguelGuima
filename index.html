@@ -105,6 +105,42 @@
                 <button type="reset" aria-label="Limpar todos os campos do formulário">Limpar formulário</button>
             </form>
         </section>
+        <section id="midia" aria-labelledby="midia-titulo">
+            <h2 id="midia-titulo">Conheça os tipos de conexão à internet</h2>
+
+            <p>
+                Aprenda mais sobre as diferentes tecnologias de conexão
+                e descubra como a internet chega até você.
+            </p>
+
+            <video controls preload="none" poster="assets/images/nexanet.png" width="720" aria-label="Vídeo explicativo sobre os tipos de conexão à internet">
+                <source src="assets/videos/nexanet.mp4" type="video/mp4">
+                <track src="assets/videos/legendas-pt.vtt" kind="captions" srclang="pt-BR" label="Português" default>
+
+                Seu navegador não suporta a reprodução deste vídeo <a href="assets/videos/nexanet.mp4">Abrir o vídeo</a>.
+            </video>
+        </section>
+
+        <p id="suporte-formatos" aria-live="polite"></p>
+
+        <script>
+            const video = document.querySelector("#midia video");
+            const suporteMP4 = video.canPlayType("video/mp4");
+            const mensagem = document.querySelector("#suporte-formatos");
+
+            console.log("Suporte a MP4:", suporteMP4);
+
+            if (suporteMP4 === "probably") {
+                mensagem.textContent =
+                    "Seu navegador provavelmente suporta o formato MP4.";
+            } else if (suporteMP4 === "maybe") {
+                mensagem.textContent =
+                    "Seu navegador pode suportar o formato MP4.";
+            } else {
+                mensagem.textContent =
+                    "O navegador não confirmou suporte ao formato MP4.";
+            }
+        </script>
     </main>
 
     <footer>
