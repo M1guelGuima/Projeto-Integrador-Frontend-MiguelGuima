@@ -8,6 +8,7 @@
 <body>
     <header>
         <h1>NexaNet — Internet para conectar você</h1>
+        <img src="assets/images/nexanet.png" alt="Ilustração da NexaNet" width="300" height="200">
         <p>Conectando pessoas com internet por fibra óptica.</p>
     </header>
 
@@ -26,6 +27,42 @@
                    target="_blank"
                    rel="noopener noreferrer">Anatel</a>.
             </p>
+        </section>
+
+        <section aria-labelledby="tecnologia-titulo">
+            <h2 id="tecnologia-titulo">Tecnologia e Desempenho</h2>
+            <h3>Velocidade dos nossos planos</h3>
+
+            <canvas id="grafico-velocidade" width="500" height="220">
+                Gráfico comparativo das velocidades dos planos:
+                Fibra Básica, 300 Mbps; Fibra Avançada, 600 Mbps.
+            </canvas>
+            <p>Conheça a tecnologia que conecta você à NexaNet.</p>
+
+             <svg
+                viewBox="0 0 100 100"
+                width="120"
+                height="120"
+                role="img"
+                aria-labelledby="logo-svg-titulo"
+            >
+                <title id="logo-svg-titulo">Símbolo da NexaNet, com a letra N e um arco orbital</title>
+
+                <path
+                    d="M 18 22 L 18 78 L 30 78 L 30 42 L 58 78 L 70 78 L 70 22 L 58 22 L 58 58 L 30 22 Z"
+                    fill="#00AEEF"
+                />
+
+                <path
+                    d="M 10 65 C -2 43 28 15 73 18"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+                <circle cx="76" cy="18" r="4" fill="#00AEEF" />
+            </svg>
         </section>
 
         <section aria-labelledby="planos-titulo">
@@ -51,7 +88,7 @@
                     </tr>
                 </tbody>
             </table>
-            <img src="assets/images/nexanet.png" alt="Ilustração da NexaNet">
+            <img src="assets/images/nexanet.png" alt="Ilustração da NexaNet" width="300" height="200">
         </section>
 
         <section aria-labelledby="contato-titulo">
@@ -146,5 +183,6 @@
     <footer>
         <p>Projeto Integrador de Front-end — NexaNet, empresa fictícia.</p>
     </footer>
+    <script src="js/grafico.js"></script>
 </body>
 </html>
