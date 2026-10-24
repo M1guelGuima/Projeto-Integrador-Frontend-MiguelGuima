@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexaNet | Internet para conectar você</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <header id="cabecalho-principal">
         <h1>NexaNet — Internet para conectar você</h1>
         <img src="assets/images/nexanet.png" alt="Ilustração da NexaNet" width="300" height="200">
-        <p>Conectando pessoas com internet por fibra óptica.</p>
+        <p class="destaque">Conectando pessoas com internet por fibra óptica.</p>
     </header>
 
     <main>
@@ -23,9 +25,7 @@
             </ul>
             <p>
                 Consulte informações sobre seus direitos como consumidor no site da
-                <a href="https://www.gov.br/anatel/pt-br/consumidor"
-                   target="_blank"
-                   rel="noopener noreferrer">Anatel</a>.
+                <a class="botao" href="https://www.gov.br/anatel/pt-br/consumidor" target="_blank" rel="noopener noreferrer">Anatel</a>
             </p>
         </section>
 
@@ -67,7 +67,7 @@
 
         <section aria-labelledby="planos-titulo">
             <h2 id="planos-titulo">Nossos planos</h2>
-            <table>
+            <table class="card">
                 <thead>
                     <tr>
                         <th scope="col">Plano</th>
