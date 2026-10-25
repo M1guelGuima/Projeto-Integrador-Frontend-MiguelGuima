@@ -72,8 +72,34 @@ main > section {
 }
 
 #cabecalho-principal {
+    position: relative;
     padding: 0;
     border-bottom: none;
+}
+
+.navegacao-principal {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    display: flex;
+    gap: 1rem;
+
+    padding: 0.75rem 1rem;
+    background-color: RGBA(6, 43, 91, 0.85);
+    border-radius: var(--raio-borda);
+
+.navegacao-principal a:link,
+.navegacao-principal a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navegacao-principal a:focus-visible {
+    outline: 2px solid var(--cor-principal);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
 }
 
 .banner-principal {
@@ -121,4 +147,201 @@ ul {
 ol {
     list-style-type: decimal;
     padding-left: 2rem;
+}
+
+.grade-planos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.card-plano {
+    background-color: var(--cor-fundo);
+    padding: 1.5rem;
+    border: 1px solid var(--cor-principal);
+    border-radius: var(--raio-borda);
+
+    box-shadow: 0 0 12px rgba(0, 174, 239, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card-plano:first-child {
+    border: 2px solid var(--cor-principal);
+}
+
+.card-plano:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 
+    0 0 12px rgba(0, 174, 239, 0.4),
+    0 0 28px rgba(0, 174, 239, 0.2);
+
+    ;
+}
+
+.preco-plano {
+    color: var(--cor-texto);
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.preco-plano span {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #CCCCCC;
+}
+
+.palavra-chave {
+    display: inline-block;
+    color: var(--cor-principal);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    border: 1px solid var(--cor-principal);
+    border-radius: 0.5rem;
+
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 0.75rem;
+}
+
+.velocidade-plano {
+    color: var(--cor-principal);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0.75rem 0;  
+}
+
+.beneficios-plano {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    }
+
+.beneficios-plano li {
+    position: relative;
+    padding: 0.65rem 0 0.65rem 1.25rem;
+}
+
+.beneficios-plano li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+
+    width: 0.45rem;
+    height: 0.45rem;
+
+    background-color: var(--cor-principal);
+    border-radius: 50%;
+}
+
+.beneficios-plano li {
+    border-bottom: none;
+}
+
+.card-plano p {
+    margin-bottom: 0.5rem;
+}
+
+.card-plano:first-child {
+    border: 2px solid var(--cor-principal);
+}
+
+.plano-casual {
+    --cor-plano: #00AEEF;
+}
+
+.plano-pro {
+    --cor-plano: #A855F7;
+}
+
+.plano-gamer {
+    --cor-plano: #39FF14;
+}
+
+.plano-empresa {
+    --cor-plano: #FFB020;
+}
+
+.card-plano {
+    border-color: var(--cor-plano, var(--cor-principal));
+}
+
+.card-plano .palavra-chave,
+.card-plano .velocidade-plano {
+    color: var(--cor-plano, var(--cor-principal));
+}
+
+.card-plano .palavra-chave {
+    border-color: var(--cor-plano, var(--cor-principal));
+}
+
+.card-plano .beneficios-plano li::before {
+    background-color: var(--cor-plano, var(--cor-principal));
+}
+
+.card-plano:hover {
+    box-shadow:
+        0 0 12px color-mix(in srgb, var(--cor-plano, var(--cor-principal)) 40%, transparent),
+        0 0 28px color-mix(in srgb, var(--cor-plano, var(--cor-principal)) 20%, transparent);
+}
+
+.card-plano h3 {
+    color: var(--cor-plano, var(--cor-principal));
+}
+
+.card-plano {
+    position: relative;
+    overflow: hidden;
+}
+
+.cabecalho-plano {
+    position: relative;
+    height: 220px;
+    margin: -1.5rem -1.5rem 1rem;
+}
+
+.imagem-plano {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%;
+
+-webkit-mask-image: linear-gradient(
+    to bottom,
+    #000000 0%,
+    #000000 15%,
+    rgba(0, 0, 0, 0.9) 30%,
+    rgba(0, 0, 0, 0.65) 45%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.08) 75%,
+    transparent 100%
+);
+
+mask-image: linear-gradient(
+    to bottom,
+    #000000 0%,
+    #000000 15%,
+    rgba(0, 0, 0, 0.9) 30%,
+    rgba(0, 0, 0, 0.65) 45%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.08) 75%,
+    transparent 100%
+);
+}
+
+.cabecalho-plano h3 {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1;
+
+    margin: 0;
+    color: var(--cor-plano, var(--cor-principal));
+    font-size: 1.5rem;
+    text-shadow: 0 2px 8px #000000;
 }
