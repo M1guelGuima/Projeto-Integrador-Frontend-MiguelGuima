@@ -9,7 +9,15 @@
 </head>
 <body>
     <header id="cabecalho-principal">
-        <img src="assets/images/NexaNet-Banner.png" alt="Banner da NeaNet" class="banner-principal"
+        <img src="assets/images/NexaNet-Banner.png" alt="Banner da NeaNet" class="banner-principal">
+
+        <nav class="navegacao-principal" aria-label="Navegação Principal">
+            <a href="#inicio">Início</a>
+            <a href="#tecnologia-titulo">Tecnologia</a>
+            <a href="#planos-titulo">Planos</a>
+            <a href="#contato-titulo">Contato</a>
+            <a href="#midia-titulo">Conexões</a>
+        </nav>
     </header>
 
     <main>
@@ -59,27 +67,74 @@
 
         <section aria-labelledby="planos-titulo">
             <h2 id="planos-titulo">Nossos planos</h2>
-            <table class="card">
-                <thead>
-                    <tr>
-                        <th scope="col">Plano</th>
-                        <th scope="col">Velocidade</th>
-                        <th scope="col">Preço mensal ilustrativo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fibra Básica</td>
-                        <td>300 Mbps</td>
-                        <td>R$ 79,90</td>
-                    </tr>
-                    <tr>
-                        <td>Fibra Avançada</td>
-                        <td>600 Mbps</td>
-                        <td>R$ 99,90</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="grade-planos">
+                <article class="card-plano plano-casual">
+                    <div class="cabecalho-plano">
+                        <img src="assets/images/hexa-casual.jpeg" alt="Notebook em um ambiente iluminado por luzes azuis, representando o plano Nexa Casual" class="imagem-plano">
+                        <h3>Nexa Casual</h3>
+                    </div>
+                    <p class="preco-plano">
+                        R$ 59,90<span>/mês</span>
+                    </p>
+                    <p class="palavra-chave">DIA A DIA</p>
+                    <p class="velocidade-plano">300 Mbps</p>
+
+                    <ul class="beneficios-plano">
+                        <li>Navegação e redes sociais</li>
+                        <li>Estudos e tarefas online</li>
+                        <li>Filmes e vídeos por streaming</li>
+                    </ul>
+                </article>
+
+                <article class="card-plano plano-pro">
+                    <div class="cabecalho-plano">
+                        <img src="assets/images/hexa-pro.jpeg" alt="Estação de trabalho com notebook e iluminação roxa, representando o plano Nexa Pro" class="imagem-plano">
+                        <h3>Nexa Pro</h3>
+                    </div>
+                    <p class="preco-plano">
+                        R$ 99,90<span>/mês</span>
+                    </p>
+                    <p class="palavra-chave">PRODUTIVIDADE</p>
+                    <p class="velocidade-plano">500 Mbps</p>
+
+                    <ul class="beneficios-plano">
+                        <li>Trabalho e reuniões online</li>
+                        <li>Vários dispositivos conectados</li>
+                        <li>Estudos e atividades simultâneas</li>
+                    </ul>
+                </article>
+
+                <article class="card-plano plano-gamer">
+                    <h3>Nexa Gamer</h3>
+
+                    <p class="preco-plano">
+                        R$ 119,90<span>/mês</span>
+                    </p>
+                    <p class="palavra-chave">GAMING</p>
+                    <p class="velocidade-plano">700 Mbps</p>
+
+                    <ul class="beneficios-plano">
+                        <li>Jogos online e partidas competitivas</li>
+                        <li>Downloads de jogos e atualizações</li>
+                        <li>Streaming e entretenimento digital</li>
+                    </ul>
+                </article>
+
+                <article class="card-plano plano-empresa">
+                    <h3>Nexa Empresa</h3>
+
+                    <p class="preco-plano preco-consulta">Sob consulta</p>
+                    <p class="palavra-chave">NEGÓCIOS</p>
+                    <p class="velocidade-plano">Velocidade personalizada</p>
+
+                    <ul class="beneficios-plano">
+                        <li>Soluções conforme a necessidade da empresa</li>
+                        <li>Conexão para equipes e dispositivos</li>
+                        <li>Velocidade conforme a demanda</li>
+                    </ul>
+
+                </article>
+            </div>
             <img src="assets/images/nexanet.png" alt="Ilustração da NexaNet" width="300" height="200">
         </section>
 
