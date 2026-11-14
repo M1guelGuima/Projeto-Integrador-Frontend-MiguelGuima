@@ -13,7 +13,7 @@
 
         <nav class="navegacao-principal" aria-label="Navegação Principal">
             <a href="#inicio">Início</a>
-            <a href="#tecnologia-titulo">Tecnologia</a>
+            <a href="#apresentacao-central">Tecnologia</a>
             <a href="#planos-titulo">Planos</a>
             <a href="#contato-titulo">Contato</a>
             <a href="#midia-titulo">Conexões</a>
@@ -21,48 +21,49 @@
     </header>
 
     <main>
-        <section class="apresentacao">
+        <section class="apresentacao-inicial">
             <h2>NexaNet - conectando você ao mundo</h2>
 
             <p>
                 Logo abaixo estão algumas informações da nossa empresa
             </p>
-        </section>
 
-        <section aria-labelledby="tecnologia-titulo">
-            <h2 id="tecnologia-titulo">Tecnologia e Desempenho</h2>
-            <h3>Velocidade dos nossos planos</h3>
-
-            <canvas id="grafico-velocidade" width="500" height="220">
-                Gráfico comparativo das velocidades dos planos:
-                Fibra Básica, 300 Mbps; Fibra Avançada, 600 Mbps.
-            </canvas>
-            <p>Conheça a tecnologia que conecta você à NexaNet.</p>
-
-             <svg
-                viewBox="0 0 100 100"
-                width="120"
-                height="120"
-                role="img"
-                aria-labelledby="logo-svg-titulo"
-            >
+            <svg viewBox="0 0 100 100" width="120" height="120" role="img" aria-labelledby="logo-svg-titulo">
                 <title id="logo-svg-titulo">Símbolo da NexaNet, com a letra N e um arco orbital</title>
 
-                <path
-                    d="M 18 22 L 18 78 L 30 78 L 30 42 L 58 78 L 70 78 L 70 22 L 58 22 L 58 58 L 30 22 Z"
-                    fill="#00AEEF"
-                />
+                <path d="M 18 22 L 18 78 L 30 78 L 30 42 L 58 78 L 70 78 L 70 22 L 58 22 L 58 58 L 30 22 Z" fill="#00AEEF"/>
 
-                <path
-                    d="M 10 65 C -2 43 28 15 73 18"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                />
+                <path d="M 10 65 C -2 43 28 15 73 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
 
                 <circle cx="76" cy="18" r="4" fill="#00AEEF" />
             </svg>
+        </section>
+
+        <section class="apresentacao-central" aria-labelledby="apresentacao-central">
+            <div class="conteudo-apresentacao-central">
+                <div class="texto-apresentacao-central">
+
+                    <h2 id="apresentacao-central">Sobre nossa empresa...</h2>
+                    <p>
+                        A NexaNet é uma empresa focada na região Nordeste, dedicada a conectar pessoas, aproximar famílias e criar novas oportunidades por meio da tecnologia. Acreditamos que uma internet de qualidade é essencial para acompanhar a evolução do mundo digital, tornando a comunicação, o acesso à informação e as atividades do dia a dia mais simples e acessíveis.
+                    </p>
+                    <p>
+                        Nosso compromisso é oferecer soluções de conectividade que combinam desempenho, estabilidade e modernidade, atendendo às necessidades de quem deseja estudar, trabalhar, assistir a filmes, jogar on-line ou manter contato com pessoas queridas. Buscamos proporcionar uma experiência digital eficiente, com uma conexão preparada para acompanhar o ritmo dos nossos clientes.
+                    </p>
+                    <p>
+                        Além da tecnologia, valorizamos a praticidade, a facilidade no atendimento e a proximidade com as pessoas. Queremos que cada cliente encontre na NexaNet uma parceira para suas necessidades digitais, com soluções pensadas para oferecer mais comodidade e confiança.
+                    </p>
+                    <p>
+                        Mais do que conectar dispositivos, queremos conectar oportunidades e contribuir para um Nordeste cada vez mais conectado.
+                    </p>
+                </div>
+
+                <div class="video-apresentacao-central">
+                    <video id="video-apresentacao-central" autoplay muted loop playsinline preload="metadata" poster="assets/images/nexanet.png" aria-label="Vídeo de apresentação da NexaNet">
+                        <source src="assets/videos/nexanet.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.
+                    </video>
+                </div>
+            </div>
         </section>
 
         <section aria-labelledby="planos-titulo">
@@ -148,71 +149,95 @@
             </div>
         </section>
 
-        <section aria-labelledby="contato-titulo">
-            <h2 id="contato-titulo">Solicite contato</h2>
-            <p>Preencha o formulário para demonstrar seu interesse em um dos nossos planos fictícios.</p>
+        <section class="estatisticas" aria-labelledby="estatisticas-titulo">
+            <h2 id="estatisticas-titulo">NexaNet em números</h2>
 
-            <form action="#" method="get">
-                <fieldset>
-                    <legend>Seus dados</legend>
+            <p class="descricao-estatisticas">Conheça os números e as soluções de conectividade da NexaNet.</p>
 
-                    <label for="nome">Nome completo:</label>
-                    <input type="text" id="nome" name="nome"
-                           autocomplete="name" required>
+            <div class="grafico-estatisticas">
+                <h3>Velocidade dos nossos planos</h3>
 
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email"
-                           autocomplete="email" required>
+                <canvas id="grafico-velocidade" width="500" height="220">Seu navegador não suporta gráficos em canvas.</canvas>
+            </div>
 
-                    <label for="telefone">Telefone (somente números):</label>
-                    <input type="tel" id="telefone" name="telefone"
-                           autocomplete="tel"
-                           pattern="[0-9]{10,11}"
-                           title="Digite o DDD e o número, com 10 ou 11 dígitos, sem espaços ou símbolos."
-                           required>
-                </fieldset>
+            <div class="feedbacks">
+                <div class="cabecalho-feedbacks">
+                    <div>
+                        <h3>O que nossos clientes dizem</h3>
+                        <p>Conheça algumas experiências ilustrativas com a NexaNet.</p>
+                    </div>
 
-                <fieldset>
-                    <legend>Plano de interesse</legend>
+                    <div class="controles-feedbacks">
+                        <button type="button" id="feedback-anterior" aria-label="Ver feedbacks anteriores">&#8592;</button>
+                        <button type="button" id="feedback-proximo" aria-label="Ver próximos feedbacks">&#8594;</button>
+                    </div>
+                </div>
 
-                    <label for="plano">Escolha um plano:</label>
-                    <select id="plano" name="plano" required>
-                        <option value="">Selecione um plano</option>
-                        <option value="fibra-basica">Fibra Básica — 300 Mbps</option>
-                        <option value="fibra-avancada">Fibra Avançada — 600 Mbps</option>
-                        <option value="fibra-premium">Fibra Premium — 800 Mbps</option>
-                        <option value="fibra-ultra">Fibra Ultra — 1 Gbps</option>
-                    </select>
+                <div class="lista-feedbacks" id="lista-feedbacks">
+                    <article class="card-feedback">
+                        <div class="estrelas-feedback" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="texto-feedback">
+                            "A internet atende muito bem às minhas necessidades de estudo,
+                            trabalho e entretenimento. A navegação é prática e rápida."
+                        </p>
+                        <div class="autor-feedback">
+                            <div class="avatar-feedback" aria-hidden="true">AM</div>
+                            <div>
+                                <h4>Ana Martins</h4>
+                                <span>João Pessoa, PB</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    <p>Como prefere receber o contato?</p>
+                    <article class="card-feedback">
+                        <div class="estrelas-feedback" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="texto-feedback">
+                            "Consigo conectar vários dispositivos em casa e aproveitar
+                            meus conteúdos favoritos com muito mais comodidade."
+                        </p>
+                        <div class="autor-feedback">
+                            <div class="avatar-feedback" aria-hidden="true">RC</div>
+                            <div>
+                                <h4>Rafael Costa</h4>
+                                <span>Recife, PE</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    <input type="radio" id="contato-email" name="preferencia-contato"
-                           value="email" required>
-                    <label for="contato-email">Por e-mail</label>
+                    <article class="card-feedback">
+                        <div class="estrelas-feedback" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="texto-feedback">
+                            "Gostei da proposta dos planos e da facilidade para encontrar
+                            uma opção que combine com a minha rotina."
+                        </p>
+                        <div class="autor-feedback">
+                            <div class="avatar-feedback" aria-hidden="true">LS</div>
+                            <div>
+                                <h4>Larissa Souza</h4>
+                                <span>Natal, RN</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    <input type="radio" id="contato-telefone" name="preferencia-contato"
-                           value="telefone">
-                    <label for="contato-telefone">Por telefone</label>
-                </fieldset>
+                    <article class="card-feedback">
+                        <div class="estrelas-feedback" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p class="texto-feedback">
+                            "Uma proposta de internet moderna, com opções interessantes
+                            para quem trabalha e estuda conectado."
+                        </p>
+                        <div class="autor-feedback">
+                            <div class="avatar-feedback" aria-hidden="true">PM</div>
+                            <div>
+                                <h4>Pedro Mendes</h4>
+                                <span>Fortaleza, CE</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
 
-                <button type="submit">Enviar solicitação</button>
-                <button type="reset" aria-label="Limpar todos os campos do formulário">Limpar formulário</button>
-            </form>
-        </section>
-        <section id="midia" aria-labelledby="midia-titulo">
-            <h2 id="midia-titulo">Conheça os tipos de conexão à internet</h2>
+                <p class="aviso-feedbacks">Depoimentos fictícios, criados exclusivamente para demonstrar o funcionamento do site.</p>
+            </div>
 
-            <p>
-                Aprenda mais sobre as diferentes tecnologias de conexão
-                e descubra como a internet chega até você.
-            </p>
-
-            <video controls preload="none" poster="assets/images/nexanet.png" width="720" aria-label="Vídeo explicativo sobre os tipos de conexão à internet">
-                <source src="assets/videos/nexanet.mp4" type="video/mp4">
-                <track src="assets/videos/legendas-pt.vtt" kind="captions" srclang="pt-BR" label="Português" default>
-
-                Seu navegador não suporta a reprodução deste vídeo <a href="assets/videos/nexanet.mp4">Abrir o vídeo</a>.
-            </video>
         </section>
 
         <p id="suporte-formatos" aria-live="polite"></p>
@@ -241,7 +266,31 @@
         <p>Consulte informações sobre seus diretios como consumidor no site da <a href="https://www.gov.br/anatel/pt-br/consumidor" target="_blank" rel="noopener noreferrer">Anatel</a></p>
         <p>Projeto Integrador de Front-end — NexaNet, empresa fictícia.</p>
     </footer>
+
+    <!-- Botão flutuante do menu lateral -->
+    <button type="button" id="botao-menu-lateral" class="botao-menu-lateral" aria-label="Abrir menu lateral" aria-controls="menu-lateral" aria-expanded="false">
+        <span aria-hidden="true">&#9776;</span>
+    </button>
+
+    <!-- Fundo escurecido atrás do menu -->
+    <div id="fundo-menu-lateral" class="fundo-menu-lateral" hidden></div>
+
+    <!-- Menu lateral -->
+    <aside id="menu-lateral" class="menu-lateral" aria-label="Menu de navegação" aria-hidden="true" inert>
+        <div class="cabecalho-menu-lateral">
+            <h2>NexaNet</h2>
+            <p>Explore nosso site</p>
+        </div>
+
+        <nav aria-label="Navegação complementar">
+            <a href="contato.html" class="link-menu-lateral">
+                <span aria-hidden="true">&#9993;</span>Contato
+            </a>
+        </nav>
+    </aside>
+
     <script src="js/grafico.js"></script>
     <script src="js/logica.js" defer></script>
+    <script src="js/contato.js" defer></script>
 </body>
 </html>

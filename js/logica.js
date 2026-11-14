@@ -74,114 +74,123 @@ const planos = [
     }
 ];
 
-let continuar = true;
+// Navegação do carrossel de feedbacks
+const listaFeedbacks = document.getElementById("lista-feedbacks");
+const botaoFeedbackAnterior = document.getElementById("feedback-anterior");
+const botaoFeedbackProximo = document.getElementById("feedback-proximo");
 
-do {
-    const entrada = prompt(
-        'Digite a velocidade mínima desejada (Mbps) ou "sair" para encerrar:'
-    );
+if (listaFeedbacks && botaoFeedbackAnterior && botaoFeedbackProximo) {
+    const obterDistancia = () => {
+        const cartao = listaFeedbacks.querySelector(".card-feedback");
+        if (!cartao) return listaFeedbacks.clientWidth;
 
-    if (entrada === null || entrada.trim().toLowerCase() === "sair") {
-        continuar = false;
-        console.log("Análise encerrada.");
-    } else {
-        const velocidadeMinima = Number(entrada);
-        let entradaValida = true;
+        const estilo = getComputedStyle(listaFeedbacks);
+        const intervalo = parseFloat(estilo.columnGap) || 0;
 
-        if (entrada.trim() === "") {
-            console.log("Erro: nenhum valor foi informado.");
-            entradaValida = false;
-        } else if (Number.isNaN(velocidadeMinima)) {
-            console.log("Erro: digite um valor numérico válido.");
-            entradaValida = false;
-        } else if (velocidadeMinima < 1 || velocidadeMinima > 10000) {
-            console.log("Erro: informe uma velocidade entre 1 e 10.000 Mbps.");
-            entradaValida = false;
+        return cartao.getBoundingClientRect().width + intervalo;
+    };
+
+    botaoFeedbackProximo.addEventListener("click", () => {
+        const chegouAoFinal =
+            listaFeedbacks.scrollLeft + listaFeedbacks.clientWidth >=
+            listaFeedbacks.scrollWidth - 5;
+
+        if (chegouAoFinal) {
+            listaFeedbacks.scrollTo({
+                left: 0,
+                behavior: "smooth"
+            });
+        } else {
+            listaFeedbacks.scrollBy({
+                left: obterDistancia(),
+                behavior: "smooth"
+            });
         }
+    });
 
-        if (entradaValida) {
-            let quantidadeBasica = 0;
-            let quantidadeIntermediaria = 0;
-            let quantidadeAlta = 0;
-            let quantidadeComBeneficios = 0;
-            let maiorVelocidade = 0;
-            const resultados = [];
-
-            for (const plano of planos) {
-                if (
-                    plano.velocidade === null ||
-                    plano.velocidade < velocidadeMinima
-                ) {
-                    continue;
-                }
-
-                let classificacao;
-
-                if (plano.velocidade === null) {
-                    classificacao = "Personalizada";
-                } else if (plano.velocidade < 400) {
-                    classificacao = "Básica";
-                } else if (plano.velocidade < 600) {
-                    classificacao = "Intermediária";
-                } else {
-                    classificacao = "Alta";
-                }
-
-                if (classificacao === "Básica") {
-                    quantidadeBasica++;
-                } else if (classificacao === "Intermediária") {
-                    quantidadeIntermediaria++;
-                } else if (classificacao === "Alta") {
-                    quantidadeAlta++;
-                }
-
-                if (plano.temBeneficio) {
-                    quantidadeComBeneficio++;
-                }
-
-                if (plano.velocidade != null && plano.velocidade > maiorVelocidade) {
-                    maiorVelocidade = plano.velocidade;
-                }
-
-                resultados.push({
-                    nome: plano.nome,
-                    velocidade: plano.velocidade,
-                    categoria: plano.categoria,
-                    classificacao: classificacao,
-                    precoBase: plano.precoBase
-                });
-
-                console.log(`${plano.nome}: ${classificacao}`);
-
-                switch (plano.categoria) {
-                    case "casual":
-                        console.log("Plano indicado para uso cotidiano.");
-                        break;
-
-                    case "pro":
-                        console.log("Plano indicado para quem precisa de mais desempenho.");
-                        break;
-
-                    case "gamer":
-                        console.log("Plano indicado para o público gamer.");
-                        break;
-
-                    case "empresa":
-                        console.log("Plano voltado para empresas.");
-                        break;
-
-                    default:
-                        console.log("Categoria de plano não reconhecida.");
-                }
-            }
-
-            console.log("Planos com beneficios:", quantidadeComBeneficios);
-
-            console.table(resultados);
-                console.log("Maior velocidade encontrada:", maiorVelocidade, "Mbps");
-                console.log("Planos básicos:", quantidadeBasica);
-                console.log("Planos intermediários:", quantidadeIntermediaria);
-                console.log("Planos de alta velocidade:", quantidadeAlta);
+    botaoFeedbackAnterior.addEventListener("click", () => {
+        if (listaFeedbacks.scrollLeft <= 5) {
+            listaFeedbacks.scrollTo({
+                left: listaFeedbacks.scrollWidth,
+                behavior: "smooth"
+            });
+        } else {
+            listaFeedbacks.scrollBy({
+                left: -obterDistancia(),
+                behavior: "smooth"
+            });
         }
+    });
+}
+
+// Controle de abertura e fechamento do menu lateral
+const botaoMenuLateral = document.getElementById("botao-menu-lateral");
+const menuLateral = document.getElementById("menu-lateral");
+const fundoMenuLateral = document.getElementById("fundo-menu-lateral");
+
+if (botaoMenuLateral && menuLateral && fundoMenuLateral) {
+    function abrirMenuLateral() {
+        // Guarda a posição atual do botão.
+        const areaBotao = botaoMenuLateral.getBoundingClientRect();
+
+        // Abre o menu.
+        menuLateral.classList.add("aberto");
+        fundoMenuLateral.hidden = false;
+
+        botaoMenuLateral.setAttribute("aria-expanded", "true");
+        menuLateral.setAttribute("aria-hidden", "false");
+        menuLateral.removeAttribute("inert");
+
+        // Move o botão para fora do menu.
+        const larguraBotao = botaoMenuLateral.offsetWidth;
+        const margem = 16;
+        const posicaoX = Math.min(
+            menuLateral.offsetWidth + margem,
+            window.innerWidth - larguraBotao - margem
+        );
+
+        botaoMenuLateral.style.left = `${posicaoX}px`;
+        botaoMenuLateral.style.top = `${areaBotao.top}px`;
+        botaoMenuLateral.style.right = "auto";
+        botaoMenuLateral.style.bottom = "auto";
     }
-} while (continuar);
+
+    function fecharMenuLateral() {
+        // Fecha o menu.
+        menuLateral.classList.remove("aberto");
+        fundoMenuLateral.hidden = true;
+
+        botaoMenuLateral.setAttribute("aria-expanded", "false");
+        menuLateral.setAttribute("aria-hidden", "true");
+        menuLateral.setAttribute("inert", "");
+
+        // Devolve o botão ao canto inferior esquerdo.
+        botaoMenuLateral.style.left = "";
+        botaoMenuLateral.style.top = "";
+        botaoMenuLateral.style.right = "";
+        botaoMenuLateral.style.bottom = "";
+
+        botaoMenuLateral.focus();
+    }
+
+    botaoMenuLateral.addEventListener("click", () => {
+        if (menuLateral.classList.contains("aberto")) {
+            fecharMenuLateral();
+        } else {
+            abrirMenuLateral();
+        }
+    });
+
+    // Fecha o menu ao clicar no fundo escurecido.
+    fundoMenuLateral.addEventListener("click", fecharMenuLateral);
+
+    // Fecha o menu ao pressionar Escape.
+    document.addEventListener("keydown", (evento) => {
+        if (
+            evento.key === "Escape" &&
+            menuLateral.classList.contains("aberto")
+        ) {
+            fecharMenuLateral();
+        }
+    });
+}

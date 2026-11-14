@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a central de atendimento da NexaNet.">
+    <title>Central de Atendimento | NexaNet</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="cabecalho-principal">
+        <img src="assets/images/NexaNet-Banner.png"
+             alt="Banner da NexaNet"
+             class="banner-principal">
+    </header>
+
+    <main>
+
+        <a href="index.html" class="botao-voltar">
+            Voltar para a página inicial
+        </a>
+
+        <h1 id="contato-titulo">Central de Atendimento</h1>
+
+        <section aria-labelledby="contato-titulo">
+
+            <p>
+                Precisa de ajuda? Nossa equipe está pronta para auxiliar
+                você com sua conexão ou seus serviços NexaNet.
+            </p>
+
+            <form action="#" method="get">
+
+                <fieldset>
+                    <legend>Seus dados</legend>
+
+                    <div class="campo-formulario">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="numeric" placeholder="(xx) xxxx-xxxx" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" title="Digite o telefone no formato (83) 99999-9999." maxlength="15" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                    <label>Como deseja se identificar?</label>
+
+                    <label>
+                        <input type="radio" name="tipo-identificacao"
+                            value="cpf" required>
+                        CPF
+                    </label>
+
+                    <label>
+                        <input type="radio" name="tipo-identificacao"
+                            value="email">
+                        E-mail
+                    </label>
+                </div>
+
+                    <div class="campo-formulario" id="campo-cpf" hidden>
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Digite o CPF no formato 000.000.000-00." maxlength="14" disabled>
+                    </div>
+
+                    <div class="campo-formulario" id="campo-email" hidden>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="seuemail@exemplo.com" disabled>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Motivo do atendimento</legend>
+
+                    <div class="campo-formulario">
+                        <label for="motivo">Selecione o assunto:</label>
+
+                        <select id="motivo" name="motivo" required>
+                            <option value="">Selecione um motivo</option>
+                            <option value="velocidade">Internet lenta</option>
+                            <option value="conexao">Problemas de conexão</option>
+                            <option value="senha-wifi">Alteração da senha do Wi-Fi</option>
+                            <option value="firewall">Desativação da proteção da rede (Firewall)</option>
+                            <option value="planos">Dúvidas sobre os planos</option>
+                            <option value="outros">Outros assuntos</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Descrição do problema</legend>
+
+                    <div class="campo-formulario">
+                        <label for="comentario">
+                            Conte-nos como podemos ajudar:
+                        </label>
+
+                        <textarea id="comentario" name="comentario"
+                                  rows="6"
+                                  placeholder="Descreva seu problema ou sua dúvida..."
+                                  required></textarea>
+
+                        <p>
+                            Procure fornecer o máximo de detalhes possível
+                            para que possamos compreender melhor sua solicitação.
+                        </p>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Enviar solicitação</button>
+
+                <button type="reset"
+                        aria-label="Limpar todos os campos do formulário">
+                    Limpar formulário
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 NexaNet. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

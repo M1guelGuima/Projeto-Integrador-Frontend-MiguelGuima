@@ -18,7 +18,7 @@ body {
 
 }
 
-main > section.apresentacao {
+main > section.apresentacao-inicial {
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -27,14 +27,14 @@ main > section.apresentacao {
     text-align: center;
 }
 
-.apresentacao h2 {
+.apresentacao-inicial h2 {
     color: #FFFFFF;
     font-size: 3.5rem;
     text-align: center;
     margin-bottom: 0.75rem;
 }
 
-.apresentacao p {
+.apresentacao-inicial p {
     color: var(--cor-principal);
     font-size: 1rem;
     text-align: center;
@@ -345,4 +345,671 @@ mask-image: linear-gradient(
     font-size: 1.5rem;
     text-shadow: 0 2px 8px #000000;
     text-transform: uppercase;
+}
+
+.video-apresentacao-central video {
+border-radius: 20px;
+}
+
+.texto-apresentacao-central p {
+    color: var(--cor-texto);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+/* Organiza o texto e o vídeo lado a lado */
+.conteudo-apresentacao-central {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Área do texto de apresentação */
+.texto-apresentacao-central {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 550px;
+    padding: 3rem;
+    border: 2px solid #FFFFFF;
+}
+
+/* Título da apresentação */
+.texto-apresentacao-central h2 {
+    color: var(--cor-texto);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+/* Parágrafos da apresentação */
+.texto-apresentacao-central p {
+    color: var(--cor-texto);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+/* Posicionamento do vídeo */
+.video-apresentacao-central {
+    width: 100%;
+}
+
+/* Formato e arredondamento do vídeo */
+.video-apresentacao-central video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 60px;
+}
+
+/* Adaptação para telas menores */
+@media (max-width: 768px) {
+    .conteudo-apresentacao-central {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .texto-apresentacao-central {
+        min-height: auto;
+        padding: 1.5rem;
+    }
+
+    .texto-apresentacao-central h2 {
+        font-size: 2.3rem;
+    }
+
+    .texto-apresentacao-central p {
+        font-size: 1.05rem;
+    }
+
+    .video-apresentacao-central video {
+        border-radius: 30px;
+    }
+}
+
+main > section.apresentacao-central {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.texto-apresentacao-central {
+    border: none;
+    padding: 1rem 0;
+    min-height: auto;
+}
+
+.video-apresentacao-central video {
+    border-radius: 24px;
+    border: none;
+    box-shadow: 0 8px 30px rgba(0, 174, 239, 0.12);
+}
+
+/* Apresentação inicial */
+main > section.apresentacao-inicial {
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+/* Texto da apresentação inicial */
+.apresentacao-inicial p {
+    margin-bottom: 0;
+}
+
+/* Logo logo abaixo do texto */
+.apresentacao-inicial svg {
+    display: block;
+    width: 120px;
+    height: auto;
+    margin: 1rem auto 0;
+}
+
+main > section.apresentacao-central {
+margin-top: 14-rem;
+padding-top: 3rem;
+}
+
+main > section.estatisticas {
+    background-color: var(--cor-superficie);
+    border: 2px solid var(--cor-principal);
+    border-radius: var(--raio-borda);
+    margin: 5rem 1rem 3rem;
+    padding: 2rem 1.5rem;
+    box-shadow: none;
+}
+
+.estatisticas h2 {
+    color: var(--cor-principal);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.descricao-estatisticas {
+    color: var(--cor-texto);
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.grafico-estatisticas {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.grafico-estatisticas h3 {
+    color: var(--cor-texto);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.grafico-estatisticas canvas {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Área dos feedbacks */
+.feedbacks {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Cabeçalho e controles */
+.cabecalho-feedbacks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cabecalho-feedbacks h3 {
+    color: var(--cor-texto);
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.cabecalho-feedbacks p {
+    color: #CCCCCC;
+    line-height: 1.6;
+}
+
+/* Botões de navegação */
+.controles-feedbacks {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.controles-feedbacks button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: #202B3C;
+    color: var(--cor-texto);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.controles-feedbacks button:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+}
+
+/* Lista horizontal */
+.lista-feedbacks {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 0.25rem 0 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.lista-feedbacks::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cartão individual */
+.card-feedback {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    min-width: 250px;
+    padding: 1.5rem;
+    background-color: #171A20;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    scroll-snap-align: start;
+}
+
+/* Estrelas */
+.estrelas-feedback {
+    color: #FFC247;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.25rem;
+}
+
+/* Texto do comentário */
+.texto-feedback {
+    color: #E5E7EB;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Identificação do autor */
+.autor-feedback {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.avatar-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+    font-weight: bold;
+}
+
+.autor-feedback h4 {
+    color: var(--cor-texto);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.autor-feedback span {
+    color: #AEB6C2;
+    font-size: 0.85rem;
+}
+
+/* Aviso sobre os depoimentos */
+.aviso-feedbacks {
+    color: #AEB6C2;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .cabecalho-feedbacks {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cabecalho-feedbacks h3 {
+        font-size: 1.7rem;
+    }
+
+    .card-feedback {
+        flex-basis: 85%;
+    }
+}
+
+/* ========================================
+   MENU LATERAL FLUTUANTE
+======================================== */
+
+/* Botão flutuante */
+.botao-menu-lateral {
+    position: fixed;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1002;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    box-shadow: 0 4px 18px rgba(0, 174, 239, 0.3);
+    transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1), top 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease,box-shadow 0.2s ease;
+
+    left: 1.5rem;
+    bottom: 1.5rem;
+}
+
+.botao-menu-lateral:hover {
+    background-color: #33c5f5;
+    box-shadow: 0 6px 22px rgba(0, 174, 239, 0.45);
+}
+
+.botao-menu-lateral:active {
+    cursor: grabbing;
+}
+
+.botao-menu-lateral:focus-visible {
+    outline: 3px solid var(--cor-texto);
+    outline-offset: 4px;
+}
+
+/* Fundo escurecido */
+.fundo-menu-lateral {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+/* Barra lateral */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+
+    width: min(320px, 85vw);
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 2rem 1.5rem;
+
+    background-color: var(--cor-superficie);
+    border-right: 2px solid var(--cor-principal);
+
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.3);
+
+    overflow-y: auto;
+    transform: translateX(-105%);
+    visibility: hidden;
+
+    transition:
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* Menu aberto */
+.menu-lateral.aberto {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Cabeçalho */
+.cabecalho-menu-lateral {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cabecalho-menu-lateral h2 {
+    color: var(--cor-principal);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cabecalho-menu-lateral p {
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+/* Link de contato */
+.link-menu-lateral {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+
+    padding: 1rem;
+    border-radius: 0.75rem;
+
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-size: 1.05rem;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.link-menu-lateral span {
+    color: var(--cor-principal);
+    font-size: 1.4rem;
+}
+
+.link-menu-lateral:hover,
+.link-menu-lateral:focus-visible {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+    outline: none;
+}
+
+.link-menu-lateral:hover span,
+.link-menu-lateral:focus-visible span {
+    color: var(--cor-fundo);
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 480px) {
+    .botao-menu-lateral {
+        width: 52px;
+        height: 52px;
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    .menu-lateral {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Respeita a preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .menu-lateral,
+    .link-menu-lateral,
+    .botao-menu-lateral {
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   PÁGINA DE CONTATO
+======================================== */
+
+/* Botão para voltar à página inicial */
+.botao-voltar {
+    display: inline-block;
+    margin: 1.5rem;
+    padding: 0.75rem 1.25rem;
+
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: background-color 0.2s ease;
+}
+
+.botao-voltar:link,
+.botao-voltar:visited {
+    color: var(--cor-fundo);
+}
+
+.botao-voltar:hover {
+    background-color: #33c5f5;
+    color: var(--cor-fundo);
+    text-decoration: none;
+}
+
+/* Título da página */
+#contato-titulo {
+    margin: 1rem 1.5rem;
+    font-size: 2.5rem;
+}
+
+/* Card principal */
+main > section[aria-labelledby="contato-titulo"] {
+    margin: 1.5rem;
+    padding: 1.5rem;
+
+    background-color: var(--cor-superficie);
+    border: 2px solid var(--cor-principal);
+    border-radius: var(--raio-borda);
+}
+
+/* Texto introdutório */
+main > section[aria-labelledby="contato-titulo"] > p {
+    margin-bottom: 1.5rem;
+}
+
+/* Organização do formulário */
+main > section[aria-labelledby="contato-titulo"] form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Grupos de campos */
+main > section[aria-labelledby="contato-titulo"] fieldset {
+    padding: 1.25rem;
+    border: 1px solid var(--cor-principal);
+    border-radius: 0.75rem;
+}
+
+main > section[aria-labelledby="contato-titulo"] legend {
+    padding: 0 0.5rem;
+    color: var(--cor-principal);
+    font-weight: bold;
+}
+
+/* Organização individual dos campos */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+}
+
+/* Campos de entrada */
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 0.75rem;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-principal);
+    border-radius: 0.5rem;
+
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Área de comentário */
+.campo-formulario textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Destaque ao selecionar um campo */
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    outline: 2px solid var(--cor-principal);
+    outline-offset: 2px;
+}
+
+/* Texto complementar do comentário */
+.campo-formulario p {
+    color: #CCCCCC;
+    font-size: 0.9rem;
+}
+
+/* Botões do formulário */
+main > section[aria-labelledby="contato-titulo"] form button {
+    width: fit-content;
+    padding: 0.75rem 1.25rem;
+
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+
+    border: none;
+    border-radius: 0.5rem;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+main > section[aria-labelledby="contato-titulo"] form button:hover {
+    background-color: #33c5f5;
+}
+
+/* Rodapé */
+footer {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Adaptação para telas menores */
+@media (max-width: 600px) {
+    #contato-titulo {
+        font-size: 2rem;
+        margin: 1rem;
+    }
+
+    main > section[aria-labelledby="contato-titulo"] {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    main > section[aria-labelledby="contato-titulo"] fieldset {
+        padding: 0.75rem;
+    }
+
+    .botao-voltar {
+        margin: 1rem;
+    }
+
+    main > section[aria-labelledby="contato-titulo"] form button {
+        width: 100%;
+    }
+}
+
+.campo-formulario[hidden] {
+    display: none !important;
 }
