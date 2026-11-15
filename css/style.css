@@ -8,13 +8,14 @@
     --raio-borda: 1.25rem;
 }
 
+/* Configurações globais de cores, tipografia e espaçamento */
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     font-family: Arial, sans-serif;
 
     font-size: 1rem;
-    line-height: 1,6;
+    line-height: 1.6;
 
 }
 
@@ -27,7 +28,7 @@ main > section.apresentacao-inicial {
     text-align: center;
 }
 
-.apresentacao-inicial h2 {
+.apresentacao-inicial h1 {
     color: #FFFFFF;
     font-size: 3.5rem;
     text-align: center;
@@ -77,6 +78,7 @@ main > section {
     border-bottom: none;
 }
 
+/* Menu principal sobreposto ao banner */
 .navegacao-principal {
     position: absolute;
     right: 1.5rem;
@@ -86,9 +88,11 @@ main > section {
     gap: 1rem;
 
     padding: 0.75rem 1rem;
-    background-color: RGBA(6, 43, 91, 0.85);
+    background-color: rgba(6, 43, 91, 0.85);
     border-radius: var(--raio-borda);
+}
 
+/* Aparência e foco dos links da navegação principal */
 .navegacao-principal a:link,
 .navegacao-principal a:visited {
     color: #FFFFFF;
@@ -99,7 +103,6 @@ main > section {
     outline: 2px solid var(--cor-principal);
     outline-offset: 4px;
     border-radius: 4px;
-}
 }
 
 .banner-principal {
@@ -149,6 +152,9 @@ ol {
     padding-left: 2rem;
 }
 
+/* ========================================
+   CARTÕES DOS PLANOS DE INTERNET
+======================================== */
 .grade-planos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -172,11 +178,9 @@ ol {
 .card-plano:hover {
     transform: translateY(-4px);
 
-    box-shadow: 
-    0 0 12px rgba(0, 174, 239, 0.4),
-    0 0 28px rgba(0, 174, 239, 0.2);
-
-    ;
+    box-shadow:
+        0 0 12px rgba(0, 174, 239, 0.4),
+        0 0 28px rgba(0, 174, 239, 0.2);
 }
 
 .preco-plano {
@@ -359,6 +363,9 @@ border-radius: 20px;
 }
 
 /* Organiza o texto e o vídeo lado a lado */
+/* ========================================
+   APRESENTAÇÃO INSTITUCIONAL E VÍDEO
+======================================== */
 .conteudo-apresentacao-central {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
@@ -473,11 +480,15 @@ main > section.apresentacao-inicial {
     margin: 1rem auto 0;
 }
 
+/* Espaçamento entre a apresentação inicial e o conteúdo institucional */
 main > section.apresentacao-central {
-margin-top: 14-rem;
-padding-top: 3rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
 }
 
+/* ========================================
+   GRÁFICO E DEPOIMENTOS
+======================================== */
 main > section.estatisticas {
     background-color: var(--cor-superficie);
     border: 2px solid var(--cor-principal);
@@ -1222,4 +1233,15 @@ main > section.sobre-bloco {
     margin: 1.5rem 0 0.75rem;
     color: var(--cor-texto);
     font-size: 1.15rem;
+}
+
+/* ========================================
+   MENSAGEM DE SUPORTE AO VÍDEO
+======================================== */
+#suporte-formatos {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    color: var(--cor-texto);
+    text-align: center;
 }

@@ -1,52 +1,21 @@
 /*
-Projeto: Analisador de planos da NexaNet
+ * DADOS E INTERAÇÕES DA PÁGINA INICIAL
+ *
+ * O array "planos" reúne os dados dos planos da NexaNet.
+ * As demais rotinas controlam o carrossel de feedbacks e o menu lateral.
+ */
 
-Entrada:
-- Velocidade mínima informada pelo usuário.
-
-Processamento:
-- Validar a entrada.
-- Classificar os planos por velocidade e categoria.
-- Contar os planos por faixa de velocidade.
-- Identificar a maior velocidade disponível.
-- Contar os planos com benefícios adicionais.
-
-Saida:
-- Relatório com resultados da análise.
-
-Pseudocódigo:
-1. Preparar os dados dos planos.
-2. Solicitar uma velocidade mínima.
-3. Validar o valor informado.
-4. Classificar os planos por velocidade e categoria.
-5. Contar os planos e identificar a maior velocidade.
-6. Contar os planos com benefícios adicionais.
-7. Exibir o relatório final.
-*/
-
-/*
-Tabela de testes — entrada: 300 Mbps
-
-| Iteração | Plano       | Velocidade | Resultado esperado |
-|----------|-------------|------------|--------------------|
-| 1        | Nexa Casua  | 300 Mbps   | Básica             |
-| 2        | Nexa Pro    | 500 Mbps   | Intermediária      |
-| 3        | Nexa Gamer  | 700 Mbps   | Alta               |
-
-Verificação:
-- Os três planos devem passar pelo filtro de velocidade.
-- As classificações devem corresponder às faixas definidas no código.
-- O plano Nexa Empresa deve ser ignorado, pois sua velocidade é null.
-*/
+// ========================================
+// DADOS DOS PLANOS
+// ========================================
 
 const planos = [
     {
-        nome: "Nexa Casua",
+        nome: "Nexa Casual",
         velocidade: 300,
         precoBase: 59.90,
         categoria: "casual",
         temBeneficio: false
-
     },
     {
         nome: "Nexa Pro",
@@ -54,7 +23,6 @@ const planos = [
         precoBase: 99.90,
         categoria: "pro",
         temBeneficio: true
-
     },
     {
         nome: "Nexa Gamer",
@@ -62,7 +30,6 @@ const planos = [
         precoBase: 119.90,
         categoria: "gamer",
         temBeneficio: true
-
     },
     {
         nome: "Nexa Empresa",
@@ -70,16 +37,21 @@ const planos = [
         precoBase: null,
         categoria: "empresa",
         temBeneficio: true
-
     }
 ];
 
-// Navegação do carrossel de feedbacks
+// ========================================
+// NAVEGAÇÃO DO CARROSSEL DE FEEDBACKS
+// ========================================
+
 const listaFeedbacks = document.getElementById("lista-feedbacks");
 const botaoFeedbackAnterior = document.getElementById("feedback-anterior");
 const botaoFeedbackProximo = document.getElementById("feedback-proximo");
 
+// Só configura os controles quando os elementos do carrossel existem na página.
 if (listaFeedbacks && botaoFeedbackAnterior && botaoFeedbackProximo) {
+
+    // Calcula a largura de um cartão somada ao espaço entre os cartões.
     const obterDistancia = () => {
         const cartao = listaFeedbacks.querySelector(".card-feedback");
         if (!cartao) return listaFeedbacks.clientWidth;
@@ -90,6 +62,7 @@ if (listaFeedbacks && botaoFeedbackAnterior && botaoFeedbackProximo) {
         return cartao.getBoundingClientRect().width + intervalo;
     };
 
+    // Avança um cartão; ao chegar ao fim, retorna ao primeiro.
     botaoFeedbackProximo.addEventListener("click", () => {
         const chegouAoFinal =
             listaFeedbacks.scrollLeft + listaFeedbacks.clientWidth >=
@@ -108,6 +81,7 @@ if (listaFeedbacks && botaoFeedbackAnterior && botaoFeedbackProximo) {
         }
     });
 
+    // Volta um cartão; no início, leva a navegação ao último.
     botaoFeedbackAnterior.addEventListener("click", () => {
         if (listaFeedbacks.scrollLeft <= 5) {
             listaFeedbacks.scrollTo({
@@ -123,25 +97,31 @@ if (listaFeedbacks && botaoFeedbackAnterior && botaoFeedbackProximo) {
     });
 }
 
-// Controle de abertura e fechamento do menu lateral
+// ========================================
+// CONTROLE DO MENU LATERAL
+// ========================================
+
 const botaoMenuLateral = document.getElementById("botao-menu-lateral");
 const menuLateral = document.getElementById("menu-lateral");
 const fundoMenuLateral = document.getElementById("fundo-menu-lateral");
 
+// Evita configurar eventos caso algum elemento necessário não esteja presente.
 if (botaoMenuLateral && menuLateral && fundoMenuLateral) {
+
     function abrirMenuLateral() {
-        // Guarda a posição atual do botão.
+        // Guarda a posição do botão antes de abrir o menu.
         const areaBotao = botaoMenuLateral.getBoundingClientRect();
 
-        // Abre o menu.
         menuLateral.classList.add("aberto");
         fundoMenuLateral.hidden = false;
 
+        // Atualiza o estado acessível do menu e do botão.
         botaoMenuLateral.setAttribute("aria-expanded", "true");
+        botaoMenuLateral.setAttribute("aria-label", "Fechar menu lateral");
         menuLateral.setAttribute("aria-hidden", "false");
         menuLateral.removeAttribute("inert");
 
-        // Move o botão para fora do menu.
+        // Move o botão para fora do menu para que continue acessível.
         const larguraBotao = botaoMenuLateral.offsetWidth;
         const margem = 16;
         const posicaoX = Math.min(
@@ -156,15 +136,16 @@ if (botaoMenuLateral && menuLateral && fundoMenuLateral) {
     }
 
     function fecharMenuLateral() {
-        // Fecha o menu.
         menuLateral.classList.remove("aberto");
         fundoMenuLateral.hidden = true;
 
+        // Restaura os atributos acessíveis do menu e do botão.
         botaoMenuLateral.setAttribute("aria-expanded", "false");
+        botaoMenuLateral.setAttribute("aria-label", "Abrir menu lateral");
         menuLateral.setAttribute("aria-hidden", "true");
         menuLateral.setAttribute("inert", "");
 
-        // Devolve o botão ao canto inferior esquerdo.
+        // Devolve o botão à posição definida originalmente no CSS.
         botaoMenuLateral.style.left = "";
         botaoMenuLateral.style.top = "";
         botaoMenuLateral.style.right = "";
@@ -173,6 +154,7 @@ if (botaoMenuLateral && menuLateral && fundoMenuLateral) {
         botaoMenuLateral.focus();
     }
 
+    // Alterna entre abrir e fechar o menu.
     botaoMenuLateral.addEventListener("click", () => {
         if (menuLateral.classList.contains("aberto")) {
             fecharMenuLateral();
@@ -181,10 +163,9 @@ if (botaoMenuLateral && menuLateral && fundoMenuLateral) {
         }
     });
 
-    // Fecha o menu ao clicar no fundo escurecido.
+    // Fecha o menu ao clicar fora dele ou pressionar Escape.
     fundoMenuLateral.addEventListener("click", fecharMenuLateral);
 
-    // Fecha o menu ao pressionar Escape.
     document.addEventListener("keydown", (evento) => {
         if (
             evento.key === "Escape" &&
