@@ -1,35 +1,58 @@
-console.log("Olá, NexaNet!");
+/*
+ * GRÁFICO DE VELOCIDADE DOS PLANOS
+ * Desenha no canvas as velocidades dos planos residenciais da NexaNet.
+ */
 
+// Localiza o canvas da página inicial.
 const canvas = document.getElementById("grafico-velocidade");
 
+// O teste permite que o arquivo seja carregado em páginas sem esse gráfico.
 if (canvas) {
     const contexto = canvas.getContext("2d");
 
-    // Título do gráfico
-    contexto.fillStyle = "#FFFFFF";
-    contexto.font = "bold 18px Arial";
-    contexto.fillText("Velocidade dos nossos planos", 20, 30);
+    // Continua somente se o navegador conseguir criar o contexto 2D.
+    if (contexto) {
+        const dadosGrafico = [
+            { nome: "Nexa Casual", velocidade: 300 },
+            { nome: "Nexa Pro", velocidade: 500 },
+            { nome: "Nexa Gamer", velocidade: 700 }
+        ];
 
-    // Nome do primeiro plano
-    contexto.font = "14px Arial";
-    contexto.fillText("Fibra Básica", 20, 75);
+        const larguraMaximaBarra = 240;
+        const maiorVelocidade = Math.max(
+            ...dadosGrafico.map((plano) => plano.velocidade)
+        );
 
-    // Barra do primeiro plano
-    contexto.fillStyle = "#00AEEF";
-    contexto.fillRect(140, 58, 150, 24);
+        // Limpa o canvas antes de desenhar o gráfico.
+        contexto.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Velocidade do primeiro plano
-    contexto.fillStyle = "#FFFFFF";
-    contexto.fillText("300 Mbps", 300, 75);
+        // Título do gráfico.
+        contexto.fillStyle = "#FFFFFF";
+        contexto.font = "bold 18px Arial";
+        contexto.fillText("Velocidade dos planos", 20, 30);
 
-    // Nome do segundo plano
-    contexto.fillText("Fibra Avançada", 20, 125);
+        // Desenha uma barra proporcional para cada plano.
+        planos.forEach((plano, indice) => {
+            const posicaoY = 55 + indice * 55;
+            const larguraBarra =
+                (plano.velocidade / maiorVelocidade) * larguraMaximaBarra;
 
-    // Barra do segundo plano
-    contexto.fillStyle = "#00AEEF";
-    contexto.fillRect(140, 108, 240, 24);
+            // Nome do plano.
+            contexto.fillStyle = "#FFFFFF";
+            contexto.font = "14px Arial";
+            contexto.fillText(plano.nome, 20, posicaoY + 17);
 
-    // Velocidade do segundo plano
-    contexto.fillStyle = "#FFFFFF";
-    contexto.fillText("600 Mbps", 390, 125);
+            // Barra que representa a velocidade.
+            contexto.fillStyle = "#00AEEF";
+            contexto.fillRect(145, posicaoY, larguraBarra, 24);
+
+            // Valor da velocidade ao lado da barra.
+            contexto.fillStyle = "#FFFFFF";
+            contexto.fillText(
+                `${plano.velocidade} Mbps`,
+                155 + larguraMaximaBarra,
+                posicaoY + 17
+            );
+        });
+    }
 }

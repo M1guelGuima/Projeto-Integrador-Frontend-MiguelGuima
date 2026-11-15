@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -9,23 +9,24 @@
 </head>
 <body>
     <header id="cabecalho-principal">
-        <img src="assets/images/NexaNet-Banner.png" alt="Banner da NeaNet" class="banner-principal">
+        <img src="assets/images/NexaNet-Banner.png" alt="Banner da NexaNet" class="banner-principal">
 
-        <nav class="navegacao-principal" aria-label="Navegação Principal">
+        <nav class="navegacao-principal" aria-label="Navegação principal">
             <a href="#inicio">Início</a>
             <a href="#apresentacao-central">Tecnologia</a>
             <a href="#planos-titulo">Planos</a>
-            <a href="#contato-titulo">Contato</a>
-            <a href="#midia-titulo">Conexões</a>
+            <a href="contato.html">Contato</a>
+            <a href="#video-apresentacao-central">Conexões</a>
         </nav>
     </header>
 
     <main>
-        <section class="apresentacao-inicial">
-            <h2>NexaNet - conectando você ao mundo</h2>
+        <!-- Apresentação inicial e identidade visual da NexaNet -->
+        <section id="inicio" class="apresentacao-inicial">
+            <h1>NexaNet - conectando você ao mundo</h1>
 
             <p>
-                Logo abaixo estão algumas informações da nossa empresa
+                Conheça a NexaNet e as soluções de conectividade que oferecemos.
             </p>
 
             <svg viewBox="0 0 100 100" width="120" height="120" role="img" aria-labelledby="logo-svg-titulo">
@@ -39,11 +40,12 @@
             </svg>
         </section>
 
-        <section class="apresentacao-central" aria-labelledby="apresentacao-central">
+        <!-- Apresentação institucional e vídeo sobre conectividade -->
+        <section id="apresentacao-central" class="apresentacao-central" aria-labelledby="apresentacao-central-titulo">
             <div class="conteudo-apresentacao-central">
                 <div class="texto-apresentacao-central">
 
-                    <h2 id="apresentacao-central">Sobre nossa empresa...</h2>
+                    <h2 id="apresentacao-central-titulo">Sobre nossa empresa</h2>
                     <p>
                         A NexaNet é uma empresa focada na região Nordeste, dedicada a conectar pessoas, aproximar famílias e criar novas oportunidades por meio da tecnologia. Acreditamos que uma internet de qualidade é essencial para acompanhar a evolução do mundo digital, tornando a comunicação, o acesso à informação e as atividades do dia a dia mais simples e acessíveis.
                     </p>
@@ -60,12 +62,15 @@
 
                 <div class="video-apresentacao-central">
                     <video id="video-apresentacao-central" autoplay muted loop playsinline preload="metadata" poster="assets/images/nexanet.png" aria-label="Vídeo de apresentação da NexaNet">
-                        <source src="assets/videos/nexanet.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.
+                        <source src="assets/videos/nexanet.mp4" type="video/mp4">
+                        <track src="assets/videos/legendas-pt.vtt" kind="captions" srclang="pt-BR" label="Português" default>
+                        Seu navegador não suporta a reprodução deste vídeo.
                     </video>
                 </div>
             </div>
         </section>
 
+        <!-- Planos de internet oferecidos pela empresa fictícia -->
         <section aria-labelledby="planos-titulo">
             <h2 id="planos-titulo">Nossos planos</h2>
             <div class="grade-planos">
@@ -122,7 +127,7 @@
                     <ul class="beneficios-plano">
                         <li>Jogos online e partidas competitivas</li>
                         <li>Downloads de jogos e atualizações</li>
-                        <li>Streaming e entreterimento digital</li>
+                        <li>Streaming e entretenimento digital</li>
                     </ul>
 
                 </article>
@@ -149,6 +154,7 @@
             </div>
         </section>
 
+        <!-- Gráfico comparativo e depoimentos ilustrativos -->
         <section class="estatisticas" aria-labelledby="estatisticas-titulo">
             <h2 id="estatisticas-titulo">NexaNet em números</h2>
 
@@ -157,7 +163,7 @@
             <div class="grafico-estatisticas">
                 <h3>Velocidade dos nossos planos</h3>
 
-                <canvas id="grafico-velocidade" width="500" height="220">Seu navegador não suporta gráficos em canvas.</canvas>
+                <canvas id="grafico-velocidade" width="500" height="220" role="img" aria-label="Comparação das velocidades dos planos Nexa Casual, Nexa Pro e Nexa Gamer.">Seu navegador não suporta gráficos em canvas.</canvas>
             </div>
 
             <div class="feedbacks">
@@ -240,30 +246,34 @@
 
         </section>
 
-        <p id="suporte-formatos" aria-live="polite"></p>
+        <p id="suporte-formatos" class="mensagem-suporte-video" aria-live="polite"></p>
 
         <script>
-            const video = document.querySelector("#midia video");
-            const suporteMP4 = video.canPlayType("video/mp4");
+            // Verifica se o navegador informa suporte à reprodução de MP4.
+            const video = document.querySelector("#video-apresentacao-central");
             const mensagem = document.querySelector("#suporte-formatos");
 
-            console.log("Suporte a MP4:", suporteMP4);
+            // Confere se os dois elementos existem antes de acessar suas propriedades.
+            if (video && mensagem) {
+                const suporteMP4 = video.canPlayType("video/mp4");
 
-            if (suporteMP4 === "probably") {
-                mensagem.textContent =
-                    "Seu navegador provavelmente suporta o formato MP4.";
-            } else if (suporteMP4 === "maybe") {
-                mensagem.textContent =
-                    "Seu navegador pode suportar o formato MP4.";
-            } else {
-                mensagem.textContent =
-                    "O navegador não confirmou suporte ao formato MP4.";
+                if (suporteMP4 === "probably") {
+                    mensagem.textContent =
+                        "Seu navegador provavelmente suporta o formato MP4.";
+                } else if (suporteMP4 === "maybe") {
+                    mensagem.textContent =
+                        "Seu navegador pode suportar o formato MP4.";
+                } else {
+                    mensagem.textContent =
+                        "O navegador não confirmou suporte ao formato MP4.";
+                }
             }
         </script>
     </main>
 
+    <!-- Rodapé com informação institucional e referência à Anatel -->
     <footer>
-        <p>Consulte informações sobre seus diretios como consumidor no site da <a href="https://www.gov.br/anatel/pt-br/consumidor" target="_blank" rel="noopener noreferrer">Anatel</a></p>
+        <p>Consulte informações sobre seus direitos como consumidor no site da <a href="https://www.gov.br/anatel/pt-br/consumidor" target="_blank" rel="noopener noreferrer">Anatel</a></p>
         <p>Projeto Integrador de Front-end — NexaNet, empresa fictícia.</p>
     </footer>
 
